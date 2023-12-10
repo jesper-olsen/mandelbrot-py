@@ -1,7 +1,7 @@
 mandelbrot-py
 ==============
 
-Mandelbrot in (Python)[https://www.python.org/].
+Mandelbrot in [Python](https://www.python.org/).
 See [here](https://github.com/jesper-olsen/mandelbrot_erl) for an 
 [Erlang](https://www.erlang.org/) version and [here](https://github.com/jesper-olsen/mandelbrot-rs) for a [Rust](https://www.rust-lang.org/) version.
 
@@ -21,6 +21,7 @@ options:
 
 ```
 % python mandelbrot.py --dim 1000 750 --xrange -1.2 -1.0  --yrange 0.2 0.35
+Calculate 1000x750 mandelbrot
 Saving output to mandelbrot.png
 ```
 ![PNG](https://raw.githubusercontent.com/jesper-olsen/mandelbrot-py/master/mandelbrot.png) 
