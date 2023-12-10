@@ -1,9 +1,10 @@
 mandelbrot-py
 ==============
 
-Mandelbrot in [Python](https://www.python.org/).
-See [here](https://github.com/jesper-olsen/mandelbrot_erl) for an 
-[Erlang](https://www.erlang.org/) version and [here](https://github.com/jesper-olsen/mandelbrot-rs) for a [Rust](https://www.rust-lang.org/) version.
+Mandelbrot in Python. See 
+[Erlang](https://github.com/jesper-olsen/mandelbrot_erl) and
+[Rust](https://github.com/jesper-olsen/mandelbrot-rs)
+for alternate implementations.
 
 Run
 -----
@@ -31,9 +32,6 @@ Benchmark
 
 Below we will benchmark the time it takes to calculate a 25M pixel mandelbrot on a Macbook Air M1 (2020, 8 cores). All times are in seconds, and by the defaults it is the area with lower left {-1.20,0.20} and upper right {-1.0,0.35} that is mapped.
 
-The image is calculated row by row - in multi-threaded mode 
-[Rayon](https://docs.rs/rayon/latest/rayon/) farms the rows out to different threads.
-
 ```
 % time python mandelbrot.py --dim 5000 5000 
 ```
@@ -43,10 +41,3 @@ The image is calculated row by row - in multi-threaded mode
 | Time (real) | Time (user) | Speedup |
 | ---------:  | ----------: | ------: |
 | 177.2       | 177.3       |         |
-
-### Multi-process 
-
-| Time (real) | Time (user) | Speedup |
-| ---------:  | ----------: | ------: |
-|             |             |         |
-
