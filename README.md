@@ -18,6 +18,7 @@ options:
   -x XRANGE XRANGE, --xrange XRANGE XRANGE
   -y YRANGE YRANGE, --yrange YRANGE YRANGE
   -d DIM DIM, --dim DIM DIM
+  -n NWORKERS, --nworkers NWORKERS
 ```
 
 ```
@@ -41,3 +42,17 @@ Below we will benchmark the time it takes to calculate a 25M pixel mandelbrot on
 | Time (real) | Time (user) | Speedup |
 | ---------:  | ----------: | ------: |
 | 177.2       | 177.3       |         |
+
+
+### Worker Pool
+
+Create a pool of #Workers which process individual rows concurrently.
+
+| #Workers | Time (real) | Time (user) | Speedup |
+| -------: | ---------:  | ----------: | ------: |
+|  2       | 107.7       | 190.8       | 1.6     |
+|  4       |  74.7       | 244.0       | 2.4     |
+|  8       |  50.3       | 303.7       | 3.5     |
+| 16       |  52.1       | 336.0       | 3.4     |
+| 32       |  56.0       | 300.6       | 3.2     |
+| 64       |  68.5       | 308.5       | 2.6     |
