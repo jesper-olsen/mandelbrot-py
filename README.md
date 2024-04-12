@@ -1,10 +1,13 @@
 mandelbrot-py
 ==============
 
-Mandelbrot in Python. See 
-[Erlang](https://github.com/jesper-olsen/mandelbrot_erl) and
-[Rust](https://github.com/jesper-olsen/mandelbrot-rs)
-for alternate implementations.
+Mandelbrot in Python. Sequential and parallel execution. 
+
+Other languages: 
+* [Rust](https://github.com/jesper-olsen/mandelbrot-rs) 
+* [Fortran](https://github.com/jesper-olsen/mandelbrot-f) 
+* [Erlang](https://github.com/jesper-olsen/mandelbrot_erl) 
+
 
 Run
 -----
