@@ -3,7 +3,7 @@ mandelbrot-py
 
 Mandelbrot in Python. Two implementations:
 * Regular python - sequential and parallel execution. 
-* [jax](https://github.com/google/jax) - simd & multi-core by default.
+* [jax](https://github.com/google/jax) - cpu
 
 Other languages: 
 * [Rust](https://github.com/jesper-olsen/mandelbrot-rs) 

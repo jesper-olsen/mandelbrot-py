@@ -11,7 +11,7 @@ def escape_time(c, fractal, max_iters=255):
         diverged = jnp.absolute(z) > 2
         diverging_now = diverged & (fractal == max_iters)
         fractal = jnp.where(diverging_now, i, fractal)
-    return 255-fractal
+    return max_iters-fractal
 
 def cnt2char(n: int, max_iters: int) -> str:
     #symbols= "@%#*+=-:. "
