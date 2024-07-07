@@ -67,7 +67,7 @@ Create a pool of #Workers which process individual rows concurrently.
 ### Jax 
 
 ```
-% time python mandelbrot.py --dim 5000 5000 
+% time python mandelbrot_jax.py --dim 5000 5000 
 ```
 
 | Time (real) | Time (user) | Speedup |
