@@ -1,22 +1,20 @@
-import jax.numpy as jnp
-from jax import jit
+import numpy as np
 import matplotlib.pyplot as plt
 import argparse
 
 
-@jit
 def escape_time(c, fractal, max_iters=255):
     z = c
     for i in range(max_iters):
         z = z**2 + c
-        diverged = jnp.absolute(z) > 2
+        diverged = np.abs(z) > 2
         diverging_now = diverged & (fractal == max_iters)
-        fractal = jnp.where(diverging_now, i, fractal)
+        fractal[diverging_now] = i
+        z[diverged] = np.nan  # Prevent further overflow
     return max_iters - fractal
 
 
 def cnt2char(n: int, max_iters: int) -> str:
-    # symbols= "@%#*+=-:. "
     symbols = "MW2a_. "
     idx = round(n / max_iters * (len(symbols) - 1))
     return symbols[idx]
@@ -34,7 +32,7 @@ def print_ascii(pixels, max_iters):
         print()
 
 
-def save_as_png(pixels, fname="mandelbrot.png"):
+def save_as_png(pixels, width, height, fname="mandelbrot.png"):
     fig = plt.figure(frameon=False)
     fig.set_size_inches(width, height)
     ax = plt.Axes(fig, [0.0, 0.0, 1.0, 1.0])
@@ -43,7 +41,6 @@ def save_as_png(pixels, fname="mandelbrot.png"):
     plt.imshow(
         pixels, interpolation="nearest", cmap="gray", aspect="auto", origin="lower"
     )
-    fname = "mandelbrot.png"
     print(f"Saving to {fname}")
     plt.savefig(fname, bbox_inches="tight", pad_inches=0, dpi=1)
 
@@ -62,9 +59,9 @@ if __name__ == "__main__":
     y_min, y_max = args.yrange
     width, height = args.dim
 
-    y, x = jnp.ogrid[y_min : y_max : height * 1j, x_min : x_max : width * 1j]
+    y, x = np.ogrid[y_min : y_max : height * 1j, x_min : x_max : width * 1j]
     c = x + y * 1j
-    fractal = jnp.full(c.shape, args.max_iters, dtype=jnp.int16)
-    escape_times = escape_time(c, fractal)
+    fractal = np.full(c.shape, args.max_iters, dtype=np.int16)
+    escape_times = escape_time(c, fractal, args.max_iters)
     print_ascii(escape_times, args.max_iters)
-    save_as_png(escape_times)
+    save_as_png(escape_times, width, height)

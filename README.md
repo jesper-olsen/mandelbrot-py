@@ -1,9 +1,10 @@
 mandelbrot-py
 ==============
 
-Mandelbrot in Python. Two implementations:
-* Regular python - sequential and parallel execution. 
-* [jax](https://github.com/google/jax) - cpu
+Mandelbrot in Python. Three implementations:
+* Regular python - for loops, sequential & parallel execution. 
+* [numpy](https://numpy.org/) - vectorised.
+* [jax](https://github.com/google/jax) - vectorised.
 
 Other languages: 
 * [Rust](https://github.com/jesper-olsen/mandelbrot-rs) 
@@ -37,7 +38,7 @@ Saving output to mandelbrot.png
 Benchmark
 ---------
 
-Below we will benchmark the time it takes to calculate a 25M pixel mandelbrot on a Macbook Air M1 (2020, 8 cores). All times are in seconds, and by the defaults it is the area with lower left {-1.20,0.20} and upper right {-1.0,0.35} that is mapped. Times include saving the result to file (png).
+Below we will benchmark the time it takes to calculate a 5000x5000=25M pixel mandelbrot on a Macbook Air M1 (2020, 8 cores). All times are in seconds, and by the defaults it is the area with lower left {-1.20,0.20} and upper right {-1.0,0.35} that is mapped. Times include saving the result to file (png).
 
 ```
 % time python mandelbrot.py --dim 5000 5000 
@@ -64,13 +65,15 @@ Create a pool of #Workers which process individual rows concurrently.
 | 64       |  68.5       | 308.5       | 2.6     |
 
 
-### Jax 
+### Numpy & Jax - Vectorised
 
 ```
+% time python mandelbrot_numpy.py --dim 5000 5000 
 % time python mandelbrot_jax.py --dim 5000 5000 
 ```
 
-| Time (real) | Time (user) | Speedup |
-| ---------:  | ----------: | ------: |
-| 7.5         | 18.9        | 23.6    |
+|     | Time (real) | Time (user) | Speedup |
+|-----| ---------:  | ----------: | ------: |
+|Numpy| 55.1        | 34.3        |  3.3    |
+|Jax  | 7.5         | 18.9        | 23.6    |
 
