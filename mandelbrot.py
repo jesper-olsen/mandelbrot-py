@@ -4,7 +4,7 @@ import argparse
 from multiprocessing import Pool
 
 
-def escape_time(c, limit):
+def escape_time(c: complex, limit: int) -> int:
     z = c
     for i in range(limit):
         if abs(z) > 4:
