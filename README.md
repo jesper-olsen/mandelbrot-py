@@ -10,7 +10,9 @@ Other languages:
 * [Rust](https://github.com/jesper-olsen/mandelbrot-rs) 
 * [Fortran](https://github.com/jesper-olsen/mandelbrot-f) 
 * [Erlang](https://github.com/jesper-olsen/mandelbrot_erl) 
-* [Mojo](https://github.com/jesper-olsen/mandelbrot-mojo) 
+* [Mojo](https://github.com/jesper-olsen/mandelbrot-mojo)
+* [Nushell](https://github.com/jesper-olsen/mandelbrot-nu)
+* [Awk](https://github.com/jesper-olsen/mandelbrot-awk)
 
 
 Run
