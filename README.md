@@ -13,6 +13,7 @@ Other languages:
 * [Mojo](https://github.com/jesper-olsen/mandelbrot-mojo)
 * [Nushell](https://github.com/jesper-olsen/mandelbrot-nu)
 * [Awk](https://github.com/jesper-olsen/mandelbrot-awk)
+* [Tcl](https://github.com/jesper-olsen/mandelbrot-tcl)
 
 
 Run
