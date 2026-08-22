@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import argparse
 
 
-def escape_time(c, fractal, max_iters=255):
+def escape_time(c: complex, fractal, max_iters=255):
     z = c
     for i in range(max_iters):
         z = z**2 + c
